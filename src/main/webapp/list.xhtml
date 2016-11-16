@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+    <ui:composition template="/templates/default/main.xhtml">
+        <ui:define name="content">
+            <h:head>
+                <title>List of profiles</title>
+                <h:outputScript name="js/sjcl.js" />
+            </h:head>
+            <div class="container">
+                <div class="page-header">
+                    <h1>#{t.your_profile}</h1>
+                </div>
+                <p>table of accounts</p>
+
+                <a id="new_account_modal_link">#{t.new_account}</a>
+                <div id="new_account_modal">
+                    <h2>#{t.create_new_account}</h2>
+                    <h:form id="new_account_form">
+                        <h:panelGroup>
+                            <div class="form-group">
+                                <h:inputText class="form-control" value="#{account.title}"/> #{t.title}
+                            </div>
+                            <div class="form-group">
+                                <h:inputText class="form-control" value="#{account.website}"/> #{t.website}
+                            </div>
+                            <div class="form-group">
+                                <h:inputText class="form-control" value="#{account.username}"/> #{t.username}
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="decrypted_pw" class="form-control" value="" /> #{t.password}
+                                <h:inputHidden id="encrypted_pw" value="#{account.pwd}" />
+                            </div>
+                            <h:commandButton value="#{t.account_save}" type="submit" onclick="return encryptPassword('#{login.hash}');" class="btn btn-success" action="#{account.save}">
+                                <f:ajax execute="@form" render="result" />
+                            </h:commandButton>
+                        </h:panelGroup>
+                        <h:panelGroup id="result">
+                            <h:messages class="alert alert-warning" role="alert" />
+                        </h:panelGroup>
+                    </h:form>
+                </div>
+
+                <!-- todo change user password -->
+            </div>
+
+        </ui:define>
+    </ui:composition>
+
+
+
+</h:body>
+</html>

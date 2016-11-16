@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:composition>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">#{t.togglenavigation}</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h:link outcome="index" class="navbar-brand"><h:outputText value="#{t.sitename}" /></h:link>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <h:form id="login_form" class="navbar-form navbar-right">
+                        <h:panelGroup rendered="#{!login.loggedin()}">
+                            <div class="form-group">
+                                <h:inputText pt:placeholder="#{t.email}" class="form-control" value="#{login.email}"/>
+                            </div>
+                            <div class="form-group">
+                                <h:inputSecret pt:placeholder="#{t.password}" class="form-control" value="#{login.pwd}" />
+                            </div>
+                            <h:commandButton value="#{t.signin}" class="btn btn-success" action="#{login.validate}">
+                                <f:ajax execute="@form" render="login_form" />
+                            </h:commandButton>
+                        </h:panelGroup>
+                        <h:panelGroup class="loggedin" rendered="#{login.loggedin()}">
+                            <p>Welcome #{login.email}</p>
+                            <h:commandLink action="#{login.logout}" value="Logout">
+                                <f:ajax execute="@form" render="login_form" />
+                            </h:commandLink>
+                        </h:panelGroup>
+
+                    </h:form>
+                    <h:form class="navbar-right"> Language:
+                        <h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
+                                         valueChangeListener="#{language.countryLocaleCodeChanged}">
+                            <f:selectItems value="#{language.countriesInMap}" />
+                        </h:selectOneMenu>
+                    </h:form>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+
+    </ui:composition>
+</html>
+

@@ -1,0 +1,10 @@
+<ch.mbolli.awt.auth3000.Users>
+  <users>
+    <ch.mbolli.awt.auth3000.UserBean>
+      <email>michael@bolli.us</email>
+      <password>&#x0;</password>
+      <passwordHashed>UX6AJRi4Qkk7YY52x3TyndO3bJw=</passwordHashed>
+      <salt>cYtTjjTzplJQZ0zInWyfl4zi9aR92D18a5c5FAEIRLk=</salt>
+    </ch.mbolli.awt.auth3000.UserBean>
+  </users>
+</ch.mbolli.awt.auth3000.Users>

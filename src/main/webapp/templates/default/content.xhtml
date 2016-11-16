@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition>
+    <h:panelGroup rendered="#{login.loggedin()}">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>#{t.hello} #{login.email}</h1>
+                <p>#{t.lead_loggedin}</p>
+                <p><h:link outcome="list" class="btn btn-primary btn-lg" role="button">#{t.to_userprofile}</h:link></p>
+            </div>
+        </div>
+    </h:panelGroup>
+    <h:panelGroup rendered="#{!login.loggedin()}">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>#{t.helloWorld}</h1>
+                <p>#{t.lead}</p>
+                <p><h:link outcome="register" class="btn btn-primary btn-lg" role="button">#{t.register}</h:link></p>
+            </div>
+        </div>
+    </h:panelGroup>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>#{t.heading1}</h2>
+                <p>#{t.p1}</p>
+            </div>
+            <div class="col-md-4">
+                <h2>#{t.heading2}</h2>
+                <p>#{t.p2}</p>
+            </div>
+            <div class="col-md-4">
+                <h2>#{t.heading3}</h2>
+                <p>#{t.p3}</p>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</html>
