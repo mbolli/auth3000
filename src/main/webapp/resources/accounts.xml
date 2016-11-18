@@ -1,10 +1,11 @@
 <ch.mbolli.awt.auth3000.Accounts>
   <accounts>
     <ch.mbolli.awt.auth3000.AccountBean>
-      <username></username>
-      <title></title>
-      <website></website>
-      <pwd>gG041tkfM2CsQaBdxQ==</pwd>
+      <username>test</username>
+      <title>test</title>
+      <website>test</website>
+      <pwd>eyJpdiI6Iis4R0h6Z2gwVHpxYTZza2g3Q0NyTGc9PSIsInYiOjEsIml0ZXIiOjEwMDAwLCJrcyI6MTI4LCJ0cyI6NjQsIm1vZGUiOiJjY20iLCJhZGF0YSI6IiIsImNpcGhlciI6ImFlcyIsInNhbHQiOiJiMUlPMVV1TGlKYz0iLCJjdCI6IlNERHFrMXQvOThFaSs1UEgifQ==</pwd>
+      <userid>michael@bolli.us</userid>
     </ch.mbolli.awt.auth3000.AccountBean>
   </accounts>
 </ch.mbolli.awt.auth3000.Accounts>

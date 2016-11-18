@@ -10,6 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 @ManagedBean(name="user")
@@ -20,6 +21,11 @@ public class UserBean implements Serializable {
     private String password;
     private byte[] passwordHashed;
     private byte[] salt;
+    private List<AccountBean> accounts;
+
+    public UserBean() {
+        this.accounts = Persist.getInstance().getUserAccounts();
+    }
 
     public String save() {
         setSalt(generateSalt());
@@ -81,6 +87,8 @@ public class UserBean implements Serializable {
     public void setPasswordHashed(byte[] passwordHashed) {
         this.passwordHashed = passwordHashed;
     }
+
+    public List<AccountBean> getAccounts() { return accounts; }
 
     @Override
     public String toString() {

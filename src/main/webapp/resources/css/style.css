@@ -17,3 +17,7 @@ body {
   padding: 50px;
   background-color: #ddd;
 }
+
+.hiddenpw {
+  display: none;
+}

@@ -120,6 +120,11 @@ public class Persist {
         }
     }
 
+    public List<AccountBean> getUserAccounts() {
+        Accounts accounts = this.getAccounts();
+        return accounts.getUserAccounts();
+    }
+
     public void setAccounts(Accounts accounts) {
         try {
             toXMLFile(accounts, "/home/mbolli/java/Auth3000/src/main/webapp/resources/accounts.xml");
@@ -129,8 +134,8 @@ public class Persist {
     }
 
     public boolean addAccount(AccountBean account) {
-        //Accounts accounts = getAccounts();
-        Accounts accounts = new Accounts();
+        Accounts accounts = getAccounts();
+        //Accounts accounts = new Accounts();
         accounts.addAccount(account);
         setAccounts(accounts);
         return true;

@@ -20,7 +20,7 @@ public class Accounts {
         this.accounts.add(account);
     }
 
-    public List<AccountBean> getUserBean() {
+    public List<AccountBean> getUserAccounts() {
         String userid = SessionUtils.getUserId();
         List<AccountBean> filteredAccounts = accounts.stream().filter(
                 p-> p.getUserid().equals((userid)))

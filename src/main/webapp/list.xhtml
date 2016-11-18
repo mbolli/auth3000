@@ -13,8 +13,6 @@
                 <div class="page-header">
                     <h1>#{t.your_profile}</h1>
                 </div>
-                <p>table of accounts</p>
-
                 <a id="new_account_modal_link">#{t.new_account}</a>
                 <div id="new_account_modal">
                     <h2>#{t.create_new_account}</h2>
@@ -32,15 +30,48 @@
                             <div class="form-group">
                                 <input type="text" id="decrypted_pw" class="form-control" value="" /> #{t.password}
                                 <h:inputHidden id="encrypted_pw" value="#{account.pwd}" />
+                                <h:inputHidden id="userid" value="#{account.userid}" />
+                                <input type="hidden" id="userid_prov" value="#{login.email}" />
                             </div>
                             <h:commandButton value="#{t.account_save}" type="submit" onclick="return encryptPassword('#{login.hash}');" class="btn btn-success" action="#{account.save}">
-                                <f:ajax execute="@form" render="result" />
+                                <f:ajax execute="@form" render="list_of_accounts" />
                             </h:commandButton>
                         </h:panelGroup>
                         <h:panelGroup id="result">
                             <h:messages class="alert alert-warning" role="alert" />
                         </h:panelGroup>
+                        <h:dataTable id="list_of_accounts" value="#{user.accounts}" var="item"
+                                     styleClass="employeeTable"
+                                     headerClass="employeeTableHeader">
+                            <h:column>
+                                <f:facet name="header">Title</f:facet>
+                                #{item.title}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Website</f:facet>
+                                #{item.website}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Username</f:facet>
+                                #{item.username}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Password</f:facet>
+                                <a class="unhidepw" data-hash="#{login.hash}">Click to uncover</a>
+                                <div class="cleartext"></div>
+                                <div class="hiddenpw">#{item.pwd}</div>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">#</f:facet>
+                                <h:commandButton value="#{t.edit}" action="#{account.edit}" />
+                                <h:commandButton value="#{t.delete}" action="#{account.delete}" />
+                            </h:column>
+                        </h:dataTable>
                     </h:form>
+                </div>
+                <a id="change_password_link">#{t.change_password}</a>
+                <div id="change_password">
+
                 </div>
 
                 <!-- todo change user password -->
@@ -48,8 +79,5 @@
 
         </ui:define>
     </ui:composition>
-
-
-
 </h:body>
 </html>

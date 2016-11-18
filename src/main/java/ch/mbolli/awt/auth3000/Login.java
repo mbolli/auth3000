@@ -18,25 +18,28 @@ public class Login implements Serializable {
 
 
     //validate login
-    public String validate() { try {
-        users = Persist.getInstance().getUsers();
-        UserBean valid = users.validate(email, pwd);
-        if (valid != null) {
-            HttpSession session = SessionUtils.getSession();
-            session.setAttribute("email", valid.getEmail());
-            session.setAttribute("keyid", valid.getSalt());
-            hash = valid.getSalt();
-            return "loginSuccess";
-        } else {
-            FacesContext.getCurrentInstance().addMessage(
-                    null,
-                    new FacesMessage(FacesMessage.SEVERITY_WARN,
-                            "Incorrect Username and Password",
-                            "Please enter correct username and Password"));
+    public String validate() {
+        try {
+            users = Persist.getInstance().getUsers();
+            UserBean valid = users.validate(email, pwd);
+            if (valid != null) {
+                HttpSession session = SessionUtils.getSession();
+                session.setAttribute("email", valid.getEmail());
+                session.setAttribute("keyid", valid.getSalt());
+                hash = valid.getSalt();
+                return "loginSuccess";
+            } else {
+                FacesContext.getCurrentInstance().addMessage(
+                        null,
+                        new FacesMessage(FacesMessage.SEVERITY_WARN,
+                                "Incorrect Username and Password",
+                                "Please enter correct username and Password"));
+                return "login";
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
             return "login";
-        }} catch(Exception e) {
-        e.printStackTrace(); return "login";
-    }
+        }
     }
 
     //logout event, invalidate session
