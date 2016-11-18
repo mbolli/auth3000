@@ -25,10 +25,10 @@
                                 <h:inputText class="form-control" value="#{account.website}"/> #{t.website}
                             </div>
                             <div class="form-group">
-                                <h:inputText class="form-control" value="#{account.username}" placeholder="e-mail"/> #{t.username}
+                                <h:inputText class="form-control" value="#{account.username}"/> #{t.username}
                             </div>
                             <div class="form-group">
-                                <input type="text" id="decrypted_pw" class="form-control" value="" placeholder="password"/> #{t.password}
+                                <input type="text" id="decrypted_pw" class="form-control" value=""/> #{t.password}
                                 <h:inputHidden id="encrypted_pw" value="#{account.pwd}" />
                                 <h:inputHidden id="userid" value="#{account.userid}" />
                                 <input type="hidden" id="userid_prov" value="#{login.email}" />
