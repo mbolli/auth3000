@@ -31,6 +31,7 @@ public class AuthorizationFilter implements Filter {
             if (reqURI.contains("/index.xhtml")
                     || (ses != null && ses.getAttribute("email") != null)
                     || reqURI.contains("/register.xhtml")
+                    || reqURI.contains("/passgen.xhtml")
                     || reqURI.contains("javax.faces.resource"))
                 chain.doFilter(request, response);
             else
