@@ -6,38 +6,38 @@
     <title>Register</title>
 </h:head>
 <h:body>
-<ui:composition template="/templates/default/main.xhtml">
-    <ui:define name="content">
-        <h:head>
-            <title>Register</title>
-        </h:head>
-        <div class="container">
-            <div class="page-header">
-                <h1>#{t.register}</h1>
-            </div>
-            <h:form id="new_user_form">
-                <h:panelGroup>
-                    <div class="form-group">
-                        <h:inputText id="email" class="form-control" value="#{user.email}" validatorMessage="#{t.register_invalidEmail}"
-                                     required="true" requiredMessage="#{t.empty_email}">
-                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-                        </h:inputText> #{t.email}
-                    </div>
-                    <div class="form-group">
-                        <h:inputSecret id="pass" class="form-control" value="#{user.password}" required="true" requiredMessage="#{t.empty_password}"/> #{t.password}
-                    </div>
+    <ui:composition template="/templates/default/main.xhtml">
+        <ui:define name="content">
+            <h:head>
+                <title>Register</title>
+            </h:head>
+            <div class="container">
+                <div class="page-header">
+                    <h1>#{t.register}</h1>
+                </div>
+                <h:form id="new_user_form">
+                    <h:panelGroup>
+                        <div class="form-group">
+                            <h:inputText id="email" class="form-control" value="#{user.email}" validatorMessage="#{t.register_invalidEmail}"
+                                         required="true" requiredMessage="#{t.empty_email}">
+                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            </h:inputText> #{t.email}
+                        </div>
+                        <div class="form-group">
+                            <h:inputSecret id="pass" class="form-control" value="#{user.password}" required="true" requiredMessage="#{t.empty_password}"/> #{t.password}
+                        </div>
 
-                    <h:commandButton value="#{t.user_create}" type="submit" class="btn btn-success" action="#{user.save}">
-                        <f:ajax execute="@form" render="result " />
-                    </h:commandButton>
-                </h:panelGroup>
-                <h:panelGroup id="result">
-                    <h:messages class="alert alert-warning" role="alert" />
-                </h:panelGroup>
-            </h:form>
-        </div>
-    </ui:define>
-</ui:composition>
+                        <h:commandButton value="#{t.user_create}" type="submit" class="btn btn-success" action="#{user.save()}">
+                            <f:ajax execute="@form" render="result " />
+                        </h:commandButton>
+                    </h:panelGroup>
+                    <h:panelGroup id="result">
+                        <h:messages class="alert alert-warning" role="alert" />
+                    </h:panelGroup>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
 
 
 

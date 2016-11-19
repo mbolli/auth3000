@@ -3,7 +3,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <title>Register</title>
+    <title>#{t.passgen}</title>
 </h:head>
 <h:body>
 <ui:composition template="/templates/default/main.xhtml">
@@ -13,33 +13,25 @@
         </h:head>
         <div class="container">
             <div class="page-header">
-                <h1>#{t.register}</h1>
+                <h1>#{t.passgen}</h1>
             </div>
             <h:form id="pass_gen_form">
                 <h:panelGroup>
+
                     <div class="form-group">
-                        <h:inputText id="email" class="form-control" value="#{user.email}" validatorMessage="#{t.register_invalidEmail}"
-                                     required="true" requiredMessage="#{t.empty_email}">
-                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-                        </h:inputText> #{t.email}
-                    </div>
-                    <div class="form-group">
-                        <h:inputSecret id="pass" class="form-control" value="#{user.password}" required="true" requiredMessage="#{t.empty_password}"/> #{t.password}
+                        <h:outputLabel id="generatePassLabel" class="form-control" value="#{t.genpasslbl} " />
+                        <h:outputLabel id="generatedPassLabel" class="form-control" value="should be initialized and modified by the button click" />
                     </div>
 
-                    <h:commandButton value="#{t.user_create}" type="submit" class="btn btn-success" action="#{user.save}">
+                    <h:commandButton value="#{t.genNewPass}" type="submit" class="btn btn-success" action="#{user.save}">
                         <f:ajax execute="@form" render="result " />
                     </h:commandButton>
-                </h:panelGroup>
-                <h:panelGroup id="result">
-                    <h:messages class="alert alert-warning" role="alert" />
+
                 </h:panelGroup>
             </h:form>
         </div>
     </ui:define>
 </ui:composition>
-
-
 
 </h:body>
 </html>
