@@ -86,7 +86,7 @@ public class Persist {
 
     public Users getUsers() {
         try {
-            Users users = (Users) toObject(new File("/home/awt/workspaceEclipse/auth3000/src/main/webapp/resources/users.xml"));
+            Users users = (Users) toObject(new File("/var/lib/tomcat7/webapps/Auth3000/resources/users.xml"));
             return users;
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +96,7 @@ public class Persist {
 
     public void setUsers(Users users) {
         try {
-            toXMLFile(users, "/home/awt/workspaceEclipse/auth3000/src/main/webapp/resources/users.xml");
+            toXMLFile(users, "/var/lib/tomcat7/webapps/Auth3000/resources/users.xml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -112,7 +112,7 @@ public class Persist {
 
     public Accounts getAccounts() {
         try {
-            Accounts accounts = (Accounts) toObject(new File("/home/awt/workspaceEclipse/auth3000/src/main/webapp/resources/accounts.xml"));
+            Accounts accounts = (Accounts) toObject(new File("/var/lib/tomcat7/webapps/Auth3000/resources/accounts.xml"));
             return accounts;
         } catch(Exception e) {
             e.printStackTrace();
@@ -127,7 +127,7 @@ public class Persist {
 
     public void setAccounts(Accounts accounts) {
         try {
-            toXMLFile(accounts, "/home/awt/workspaceEclipse/auth3000/src/main/webapp/resources/accounts.xml");
+            toXMLFile(accounts, "/var/lib/tomcat7/webapps/Auth3000/resources/accounts.xml");
         } catch (Exception e) {
             e.printStackTrace();
         }
