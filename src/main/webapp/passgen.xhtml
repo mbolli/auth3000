@@ -4,6 +4,18 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <title>#{t.passgen}</title>
+    <script>
+        function generateRandomPassword()
+        {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for( var i=0; i < 16; i++ )
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            alert(text);
+            return text;
+        }
+    </script>
 </h:head>
 <h:body>
 <ui:composition template="/templates/default/main.xhtml">
@@ -23,7 +35,7 @@
                         <h:outputLabel id="generatedPassLabel" class="form-control" value="should be initialized and modified by the button click" />
                     </div>
 
-                    <h:commandButton value="#{t.genNewPass}" type="submit" class="btn btn-success">
+                    <h:commandButton value="#{t.genNewPass}" type="submit" class="btn btn-success" onclick="generateRandomPassword()">
                     </h:commandButton>
 
                 </h:panelGroup>
