@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <h:outputText id="generatePassText" value="#{t.genpasslbl}" style="font-weight:bold" />
-                        <h:outputLabel id="generatedPassLabel" class="form-control" value="should be initialized and modified by the button click" />
+                        <h:outputLabel id="generatedPassLabel" class="form-control" onload="generateRandomPassword()" />
                     </div>
 
                     <h:commandButton value="#{t.genNewPass}" type="submit" class="btn btn-success" onclick="generateRandomPassword()">
