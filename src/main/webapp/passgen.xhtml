@@ -4,17 +4,9 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     <title>#{t.passgen}</title>
+    <h:outputScript library="js" name="customJSfunctions.js" />
     <script>
-        function generateRandomPassword()
-        {
-            var text = "";
-            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-            for( var i=0; i < 16; i++ )
-                text += possible.charAt(Math.floor(Math.random() * possible.length));
-            alert(text);
-            return text;
-        }
     </script>
 </h:head>
 <h:body>
